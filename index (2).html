@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+		<form> 
+			Enter Number <input type="text" id="txt1">
+			Enter Number <input type="text" id="txt2">
+				<input type="button" value="Enter" id="button" onclick="clicked()">
+
+		</form>
+		<div>
+		<script type="text/javascript">
+			function clicked(num1, num2)
+			{
+				var num1 = document.getElementById("txt1").value;
+				var num2 = document.getElementById("txt2").value;
+				//alert(num1 + " " + num2);
+				document.write( num1 + " " + num2 + "<br>");
+			}
+			function isFactor(number, factor)
+			{
+				if(number % factor == 0){
+					return true;
+				}
+				else{
+					return false;
+				}
+		    }
+
+			function showArray(array1)
+			{
+				for (i = 0; i < array1.length; i++){
+					document.write(array1[i] + "");
+				}
+			}
+			// arr = [1, 2, 4, 71 ,142];
+			 // showArray(addArray(getFactors(284)));
+			 // showArray(addArray(getFactors(220)));
+
+			function addArray(array1)
+			{
+				sum = 0;
+				//array1 = arr;
+				for (i = 0; i < array1.length; i++){
+					sum = sum + array1[i];
+					//document.write("array1[i]: " + array1[i])
+
+				//	document.write("  sum: " + sum);
+
+				}
+				//document.write("<br>");
+				return sum;
+
+		    }
+
+			function getFactors(num)
+			{
+				arrray = [];
+				for(i = 0; i < num; i++){
+					if (isFactor(num, i) == true){
+						arrray.push(i);
+					}
+				}
+				return arrray;
+			}
+			
+			window.onload=function(){
+
+				 enter = document.getElementById("button");
+				enter.onclick = function() {
+					numA = document.getElementById("txt1").value;
+					numB = document.getElementById("txt2").value;
+					clicked(numA, numB);
+					arrayA = getFactors(numA);
+					arrayB = getFactors(numB);
+					sumA = addArray(arrayA);
+					sumB = addArray(arrayB);
+					if (sumA == numB && sumB == numA){
+					document.write("The numbers are amicable");
+					}
+					else{
+						document.write("The numbers are not amicable")
+					}
+				}
+				
+			}
+			// addArray(arr);
+			// getFactors(30);
+			// arrayA = getFactors(284);
+			// document.write( "<br>" + "ArrayA: " + arrayA + "<br>");
+			// arrayB = getFactors(220);
+			// //document.write( "arrayB" + arrayB + "<br>");
+			// sumA = addArray(arrayA);
+			// //sumB = addArray(arrayB);
+			// document.write("  sumA: " + sumA + " " );
+			//document.write( "  sumB " + sumB);
+
+		</script>
+		</div>
+</body>
+</html>
